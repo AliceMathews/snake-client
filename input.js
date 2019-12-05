@@ -7,27 +7,6 @@ const setupInput = function(conn) {
   stdin.setEncoding('utf8');
   stdin.resume();
 
-  const handleUserInput = function(key) {
-    if (key === '\u0003') {
-      process.exit();
-    }
-  
-    if (key === 'w') {
-      conn.write('Move: up');
-    }
-  
-    if (key === 's') {
-      conn.write('Move: down');
-    }
-  
-    if (key === 'a') {
-      conn.write('Move: left');
-    }
-  
-    if (key === 'd') {
-      conn.write('Move: right');
-    }
-  }
   
   stdin.on('data', handleUserInput);
   
@@ -35,6 +14,35 @@ const setupInput = function(conn) {
 }
 
 
+const handleUserInput = function(key) {
+  if (key === '\u0003') {
+    process.exit();
+  }
+
+  if (key === 'w') {
+    connection.write('Move: up');
+  }
+
+  if (key === 's') {
+    connection.write('Move: down');
+  }
+
+  if (key === 'a') {
+    connection.write('Move: left');
+  }
+
+  if (key === 'd') {
+    connection.write('Move: right');
+  }
+
+  if (key === 'c') {
+    connection.write('Say: I WIN');
+  }  
+
+  if (key === 'v') {
+    connection.write('Say: SSSSSS');
+  } 
+}
 
 
 module.exports = { setupInput }
